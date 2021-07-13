@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1.5vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.characters {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+.characters li {
+  display: inline-block;
+  align-items: center;
+  border: solid 2px #d0d0d0;
+  border-radius: 0.2em;
+  padding: 0;
+  margin-bottom: 1em;
+  width: 49%;
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+background-color: #fafafa;
+}
+
+.characters p {
+  max-width: none;
+  font-weight: bold;
+  margin: 0;
+}
+
+.characters-thumb {
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 2em;
+  height: 2em;
+  background-color: #e8e8e8;
+  padding: 0.5em;
+  margin-right: 0.5em;
+}
+
+.characters-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 959px) {
+  .widget {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .fullwidth {
+    width: 97% !important;
+  }
+  .characters li {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 48%;
+  }
+  .fullwidth {
+    width: 98% !important;
+  }
+}
+

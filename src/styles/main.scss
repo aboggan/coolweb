@@ -1,0 +1,13 @@
+@import "colors";
+@import "breakpoints";
+
+.search-field {
+    padding:  15px 0;
+    background-color: #fafafa;
+    @media (min-width: $desktop-min) {
+        padding-left: 80px !important;
+        padding-right: 80px !important;
+      }
+}
+
+@import "./components/menuItems";

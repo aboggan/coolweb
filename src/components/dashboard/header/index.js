@@ -15,6 +15,7 @@ import Chat from '../../Chat';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: 30,
   },
   inputStyles: {
     height: 40,

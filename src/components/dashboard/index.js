@@ -19,7 +19,7 @@ export default function Dashboard(props) {
           <WidgetList />
         </Route>
         <Route path="/dashboard/mensajes">
-          <Widget2 />
+          <Mensajes />
         </Route>
         <Route path="/dashboard/clientes">
           <Widget1 />

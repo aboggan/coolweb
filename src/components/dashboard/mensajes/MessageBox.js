@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 export function Messagebox(props) {
   const [messages, setMessages] = useState([]);
   const { register, handleSubmit, control, reset } = useForm();
-  
+
   useEffect(() => {
     setMessages(userMessages.messages);
   }, []);
@@ -83,7 +83,7 @@ export function Messagebox(props) {
       date:"hoy",
       message: data.message,
       from: {
-        name:"Alexis"
+        name:"Alexis Boggan"
       }
     }
 

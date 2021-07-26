@@ -22,7 +22,7 @@ const finalSpaceCharacters = [
     id: "cato",
     name: "Little Cato",
     thumb: "/images/cato.png",
-    widget: 2,
+    widget: 1,
     fullwidth: false,
   },
   {
@@ -43,7 +43,7 @@ const finalSpaceCharacters = [
     id: "quinn",
     name: "Quinn Ergon",
     thumb: "/images/quinn.png",
-    widget: 1,
+    widget: 4,
     fullwidth: false,
   },
 ];

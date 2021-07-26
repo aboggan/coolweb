@@ -7,7 +7,6 @@ import {
   Typography,
   ListItemText,
   ListItemAvatar,
-  Container,
 } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import React, { useEffect, useRef, useState } from "react";
@@ -76,17 +75,6 @@ const useStyles = makeStyles((theme) => ({
   messageText: {
     fontSize: 13,
   },
-  senderName: {
-    fontSize: 33,
-    fontWeight: 600,
-    "& span": {
-      fontSize: 16,
-    },
-  },
-  subject: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
 }));
 
 export function Messagebox() {
@@ -146,7 +134,7 @@ export function Messagebox() {
   };
 
   const handleID = () => {
-    socketRef.current.emit("join", { _id: "Larry" });
+    socketRef.current.emit("join", { _id: "Moe" });
   };
 
   const getMessages = () => {
@@ -167,7 +155,7 @@ export function Messagebox() {
         texto: data.message,
       },
       remitente: {
-        nombreColaborador: "Larry",
+        nombreColaborador: "Moe",
       },
     };
 
@@ -190,11 +178,9 @@ export function Messagebox() {
   }
 
   return (
-    <Container>
-      <Typography variant="h4" className={classes.senderName}>
-        Moe <span>Cliente A</span>
-      </Typography>
-      <Typography className={classes.subject}>Asunto: Iva</Typography>
+    <>
+      <Typography variant="h5">Larry</Typography>
+      <Typography>Asunto: Iva</Typography>
       <Divider />
       <div className={classes.listContainer}>
         {!messages.docs ? (
@@ -257,6 +243,6 @@ export function Messagebox() {
           />
         </form>
       </div>
-    </Container>
+    </>
   );
 }

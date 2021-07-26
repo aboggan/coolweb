@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: 0,
     width: '100%',
+    background: "white",
+    zIndex: 999,
   },
 }));
 

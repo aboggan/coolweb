@@ -5,9 +5,16 @@
     padding:  15px 0;
     background-color: #fafafa;
     @media (min-width: $desktop-min) {
-        padding-left: 80px !important;
-        padding-right: 80px !important;
+        padding-left: 42px !important;
+        max-width: 500px;
       }
 }
+
+body{
+  @media (max-width: $desktop-min) {
+    padding-bottom: 85px;
+  }
+}
+
 
 @import "./components/menuItems";

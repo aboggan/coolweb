@@ -9,6 +9,7 @@ import Chat from "../Chat";
 import { Hidden } from "@material-ui/core";
 import Widget1 from "../Widgets/Widget1";
 import Widget2 from "../Widgets/Widget2";
+import Documentos from "./header/documentos";
 export default function Dashboard(props) {
   return (
     <>
@@ -21,8 +22,8 @@ export default function Dashboard(props) {
         <Route path="/dashboard/mensajes">
           <Mensajes />
         </Route>
-        <Route path="/dashboard/clientes">
-          <Widget1 />
+        <Route path="/dashboard/documentos">
+          <Documentos />
         </Route>
       </Container>
       <Hidden smDown>

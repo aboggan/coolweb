@@ -61,7 +61,7 @@ function Header() {
                   lg={9}
                   alignItems="center"
                 >
-                  <Link underline="none" className={classes.link}>
+                  <Link underline="none" href="/dashboard" className={classes.link}>
                     Dashboard
                   </Link>
 

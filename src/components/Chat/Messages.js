@@ -12,28 +12,32 @@ import React from "react";
 
 const messages = [
   {
+    
     id: 1,
     primary: "Alexis Boggan",
     secondary:
       "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-    person: "https://randomuser.me/api/portraits/thumb/men/31.jpg",
+    person: "https://i.ibb.co/gJ4TqhV/yo.jpg",
     date: "Hoy",
+    tipodecliente: " - ClienteA",
   },
   {
     id: 2,
     primary: "Alejandra Cagnoni",
     secondary: `Do you have a suggestion for a good present for John on his work
-      anniversary. I am really confused & would love your thoughts on it.`,
-    person: "https://randomuser.me/api/portraits/thumb/men/32.jpg",
+        anniversary. I am really confused & would love your thoughts on it.`,
+    person: "https://i.ibb.co/XbKztS7/alec.jpg",
     date: "Ayer",
+    tipodecliente: " - ClienteB",
   },
   {
     id: 3,
     primary: "Agostina Castello",
     secondary:
       "I am try out this new BBQ recipe, I think this might be amazing",
-    person: "https://randomuser.me/api/portraits/thumb/men/33.jpg",
+    person: "https://i.ibb.co/MpxsZYp/agos.jpg",
     date: "2 de Mayo",
+    tipodecliente: " - ClienteC",
   },
   {
     id: 4,

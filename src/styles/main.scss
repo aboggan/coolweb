@@ -11,6 +11,7 @@
 }
 
 body{
+  padding-bottom: 60px;
   @media (max-width: $desktop-min) {
     padding-bottom: 85px;
   }

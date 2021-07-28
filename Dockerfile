@@ -1,11 +1,15 @@
-FROM node
+FROM node:8.11-alpine
 
-WORKDIR /src
+WORKDIR /usr/src/app
 
-COPY ./build /src/build
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
 
-RUN ["npm", "i", "-g", "serve"]
+COPY package*.json /usr/src/app/
+RUN npm install && npm build
 
-EXPOSE 8080
+COPY . /usr/src/app
 
-ENTRYPOINT [ "serve", "-s", "build", "-l", "8080" ]
+ENV PORT 5000
+EXPOSE $PORT
+CMD [ "npm", "start" ]

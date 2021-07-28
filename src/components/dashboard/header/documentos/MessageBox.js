@@ -95,7 +95,7 @@ export function Messagebox() {
   });
   useEffect(() => {
     //const url = "ws://181.229.211.201:4127/";
-    const url = "http://10.8.0.3:3001/";
+    const url = "http://10.8.0.4:3001/";
 
     socketRef.current = io.connect(url);
 
@@ -134,7 +134,7 @@ export function Messagebox() {
   };
 
   const handleID = () => {
-    socketRef.current.emit("join", { _id: "Moe" });
+    socketRef.current.emit("join", { _id: "Alexis Boggan" });
   };
 
   const getMessages = () => {
@@ -155,7 +155,7 @@ export function Messagebox() {
         texto: data.message,
       },
       remitente: {
-        nombreColaborador: "Moe",
+        nombreColaborador: "Alexis Boggan",
       },
     };
 

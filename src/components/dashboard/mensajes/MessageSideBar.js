@@ -33,10 +33,10 @@ import { Fragment } from "react";
 const messages = [
   {
     id: 1,
-    primary: "Moe",
+    primary: "Alexis Boggan",
     secondary:
       "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-    person: "https://64.media.tumblr.com/avatar_907c1757561d_128.pnj",
+    person: "https://i.ibb.co/gJ4TqhV/yo.jpg",
     date: "Hoy",
     tipodecliente: " - ClienteA",
   },
@@ -45,7 +45,7 @@ const messages = [
     primary: "Alejandra Cagnoni",
     secondary: `Do you have a suggestion for a good present for John on his work
         anniversary. I am really confused & would love your thoughts on it.`,
-    person: "https://randomuser.me/api/portraits/thumb/men/32.jpg",
+    person: "https://i.ibb.co/XbKztS7/alec.jpg",
     date: "Ayer",
     tipodecliente: " - ClienteB",
   },
@@ -54,7 +54,7 @@ const messages = [
     primary: "Agostina Castello",
     secondary:
       "I am try out this new BBQ recipe, I think this might be amazing",
-    person: "https://randomuser.me/api/portraits/thumb/men/33.jpg",
+    person: "https://i.ibb.co/MpxsZYp/agos.jpg",
     date: "2 de Mayo",
     tipodecliente: " - ClienteC",
   },
@@ -318,7 +318,7 @@ export default function MessageSideBar() {
                 <ListItem
                   button
                   className={classes.listItem}
-                  selected={primary === "Moe" ? true : false}
+                  selected={primary === "Alexis Boggan" ? true : false}
                   classes={{ selected: classes.active }}
                 >
                   

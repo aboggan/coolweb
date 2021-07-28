@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Chat() {
   const classes = useStyles();
   const profile =
-    "https://lh3.googleusercontent.com/a-/AOh14GiEpSHmc6ur0ash2rKT6XiuVe7ZY_ji2ExZi4-VcQ=s96-c";
+    "https://i.ibb.co/sRFThht/eze.jpg";
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {

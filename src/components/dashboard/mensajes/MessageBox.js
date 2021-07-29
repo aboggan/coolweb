@@ -129,7 +129,7 @@ export function Messagebox() {
 
   useEffect(() => {
     //const url = "ws://181.229.211.201:4127/";
-    const url = "http://10.8.0.4:3001/";
+    const url = "http://10.8.0.5:3001/";
 
     socketRef.current = io.connect(url);
 
@@ -210,11 +210,27 @@ export function Messagebox() {
     if (name === "Alexis Boggan") return ale;
     if (name === "Ezequiel Loureyro") return eze;
   }
+  const [receiveTyping, setReceiveTyping] = useState({
+    id: null,
+    isTyping: false,
+});
+useEffect(() => {
+
+  socketRef.current.on("typing", ({ remitente, typing }) => {
+    setReceiveTyping({
+      id: remitente,
+      isTyping: typing,
+    });
+    scrollToBottom();
+  });
+
+}, []);
 
   return (
     <Container>
       <Typography variant="h4" className={classes.senderName}>
         Alexis Boggan <span>Cliente A</span>
+        
       </Typography>
       <Typography className={classes.subject}>Asunto: Test del chat</Typography>
       <Divider />
@@ -241,7 +257,7 @@ export function Messagebox() {
                       </Typography>
                     }
                     secondary={
-                      <Typography className={classes.messageText}>
+                      <Typography className={classes.messageText} style={{whiteSpace: 'pre-wrap'}}>
                         {mensaje.contenido.texto}
                       </Typography>
                     }
@@ -251,6 +267,7 @@ export function Messagebox() {
               </>
             ))}
 
+            {receiveTyping.isTyping ? "escribiendo..."  :  ""}
             <div ref={messagesEndRef} />
           </List>
         )}

@@ -201,7 +201,7 @@ export function Messagebox() {
 
   const classes = useStyles();
 
-  //console.log("render", messages)
+  console.log("render")
 
   function showPicture(name) {
     const ale = "https://i.ibb.co/gJ4TqhV/yo.jpg";

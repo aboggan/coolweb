@@ -2,7 +2,8 @@ import { Container, Grid, Divider } from "@material-ui/core";
 import React from "react";
 
 import { Hidden } from "@material-ui/core";
-import { Messagebox } from "./MessageBox";
+
+import DocumentosSideBar from './DocumentosSideBar';
 
 export default function Documentos(props) {
   return (
@@ -11,12 +12,12 @@ export default function Documentos(props) {
       <Container>
         <Grid container>
           <Hidden mdDown>
-            <Grid item md={2}>
-              {"side bar"}
+            <Grid item md={3}>
+           <DocumentosSideBar/>
             </Grid>
           </Hidden>
           <Grid item xs={12} md={8}>
-            <Messagebox />
+ 
           </Grid>
         </Grid>
       </Container>

@@ -4,8 +4,8 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Chat from "../Chat";
 import WidgetList from "../WidgetList";
+import Documentos from "./documentos";
 import Header from "./header";
-import Documentos from "./header/documentos";
 import Mensajes from "./mensajes";
 
 export default function Dashboard(props) {

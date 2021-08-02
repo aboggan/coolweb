@@ -2,7 +2,6 @@
   "name": "errepardemo",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://next-mysql-olive.vercel.app/",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
     "@date-io/moment": "^1.3.13",

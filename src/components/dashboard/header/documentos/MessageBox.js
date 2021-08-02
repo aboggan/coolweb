@@ -94,7 +94,7 @@ export function Messagebox() {
   });
   useEffect(() => {
     //const url = "ws://181.229.211.201:4127/";
-    const url = "http://10.8.0.5:3001/";
+    const url = "/api/chat";
 
     socketRef.current = io.connect(url);
 

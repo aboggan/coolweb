@@ -8,7 +8,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
 import logoSrc from "../../../images/logoDashboard.png";
 import MenuList from "./MenuList";
-import Chat from '../../Chat';
 
 
 
@@ -47,7 +46,7 @@ export default function Header() {
   const classes = useStyles();
 
   function Logo() {
-    const img = <img style={{ width: 175 }} src={logoSrc} />;
+    const img = <img style={{ width: 175 }} src={logoSrc} alt="Logo"/>;
     return (
       <div style={{ textAlign: 'center' }} >
         {img}

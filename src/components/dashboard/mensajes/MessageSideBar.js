@@ -1,34 +1,29 @@
 import {
-  Divider,
-  Input,
+  Button, Divider, Hidden, Input,
   InputAdornment,
-  Typography,
-  Button,
-  Hidden,
+  Typography
 } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Grow from "@material-ui/core/Grow";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
 import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import FolderOpenIcon from "@material-ui/icons/FolderOpen";
 import CreateIcon from "@material-ui/icons/Create";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import FolderOpenIcon from "@material-ui/icons/FolderOpen";
 import MessageIcon from "@material-ui/icons/Message";
-import Popper from "@material-ui/core/Popper";
-import MenuList from "@material-ui/core/MenuList";
-import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import AddIcon from "@material-ui/icons/Add";
+import SearchIcon from "@material-ui/icons/Search";
+import React, { Fragment } from "react";
 
-import React from "react";
-import { Fragment } from "react";
 
 const messages = [
   {

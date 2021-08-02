@@ -1,10 +1,10 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
+import Dashboard from "../components/dashboard";
 import { Login } from "../pages/Login";
 import Main from "../pages/Main";
-import Dashboard from "../components/dashboard"
 
-function PrivateRoute({ children, ...rest }) {
+/*function PrivateRoute({ children, ...rest }) {
   return (
     <Route
       {...rest}
@@ -22,7 +22,7 @@ function PrivateRoute({ children, ...rest }) {
       }}
     />
   );
-}
+}*/
 
 const routes = (
   <>

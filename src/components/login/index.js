@@ -78,7 +78,7 @@ export default function LoginRightSide({ location }) {
     }
     login(user)
 
-    
+    setRedirectToReferrer(true)
   };
 
 

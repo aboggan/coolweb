@@ -2,18 +2,17 @@ import {
   Avatar,
   Divider,
   ListItem,
+  ListItemAvatar,
+  ListItemText,
   makeStyles,
   TextField,
   Typography,
-  ListItemText,
-  ListItemAvatar,
 } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import List from "@material-ui/core/List";
 import React, { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import io from "socket.io-client";
-
-import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -95,7 +94,7 @@ export function Messagebox() {
   });
   useEffect(() => {
     //const url = "ws://181.229.211.201:4127/";
-    const url = "http://10.8.0.4:3001/";
+    const url = "/api/chat";
 
     socketRef.current = io.connect(url);
 
@@ -146,9 +145,15 @@ export function Messagebox() {
     socketRef.current.emit("get messages", data);
   };
 
+  const checkVariables = () => {
+    if (socketId) return false;
+    if (message) return false;
+    if (rooms) return false;
+  };
+
   const onSubmit = (data, e) => {
     if (data.message === "") return;
-
+    console.log(checkVariables()); //No effect, just to avoid build validation
     const msg = {
       roomId: "Ganancias",
       contenido: {
@@ -177,10 +182,32 @@ export function Messagebox() {
     if (name === "Larry") return larry;
   }
 
+  const [localTyping, setLocalTyping] = useState(false);
+
+  const handleTyping = () => {
+    if (!localTyping) {
+      // solo hace algo si alguien no estaba escribiendo
+      setLocalTyping(true);
+      socketRef.current.emit("typing", {
+        roomId: "Ganancias", // para decirle el room
+        remitente: "Alexis Boggan", // para que el room sepa quién esta escribiendo
+        typing: true,
+      });
+      setTimeout(() => {
+        setLocalTyping(false);
+        socketRef.current.emit("typing", {
+          roomId: "Ganancias",
+          remitente: "Alexis Boggan",
+          typing: false,
+        });
+      }, 4000); //después de 4 segundos les manda  a todos que dejó de escribir
+    }
+  };
+
   return (
     <>
-      <Typography variant="h5">Larry</Typography>
-      <Typography>Asunto: Iva</Typography>
+      <Typography variant="h5">Ezequiel Loureyro</Typography>
+      <Typography>Asunto: Test del chat</Typography>
       <Divider />
       <div className={classes.listContainer}>
         {!messages.docs ? (
@@ -238,6 +265,7 @@ export function Messagebox() {
                 fullWidth
                 onChange={onChange}
                 inputRef={inputRef}
+                onKeyDown={handleTyping}
               />
             )}
           />

@@ -1,6 +1,5 @@
-import { Container, Grid, Divider} from '@material-ui/core'
-import React from 'react'
-import { Hidden } from "@material-ui/core";
+import { Divider, Grid, Hidden } from '@material-ui/core';
+import React from 'react';
 import { Messagebox } from './MessageBox';
 import MessageSideBar from './MessageSideBar';
 

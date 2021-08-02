@@ -1,29 +1,24 @@
 import {
   Avatar,
-  Divider,
-  ListItem,
-  makeStyles,
-  TextField,
-  Typography,
-  ListItemText,
-  ListItemAvatar,
   Container,
+  Divider,
   IconButton,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  makeStyles,
   TextareaAutosize,
+  Typography,
 } from "@material-ui/core";
-import SendIcon from "@material-ui/icons/Send";
-import AttachFileIcon from "@material-ui/icons/AttachFile";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import List from "@material-ui/core/List";
+import AttachFileIcon from "@material-ui/icons/AttachFile";
+import SendIcon from "@material-ui/icons/Send";
 import React, { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import io from "socket.io-client";
 
-import LinearProgress from "@material-ui/core/LinearProgress";
-
 const useStyles = makeStyles((theme) => ({
-  text: {
-    padding: theme.spacing(2, 2, 0),
-  },
   paper: {
     height: "70vh",
     width: "99%",
@@ -118,7 +113,6 @@ const useStyles = makeStyles((theme) => ({
 export function Messagebox() {
   const [messages, setMessages] = useState([]);
   const [socketId, setSocketId] = useState("");
-  const [message, setMessage] = useState("");
 
   const [rooms, setRooms] = useState([]);
 
@@ -133,9 +127,8 @@ export function Messagebox() {
 
     socketRef.current = io.connect(url);
 
-    socketRef.current.on("socketId", (socketId) => {
-      setSocketId(socketId);
-      console.log("socket id:", socketId);
+    socketRef.current.on("socketId", (socketid) => {
+      setSocketId(socketid);
     });
 
     socketRef.current.on("receive messages", (m) => {
@@ -144,10 +137,10 @@ export function Messagebox() {
     });
     socketRef.current.on("joined", (rooms) => {
       setRooms(rooms);
+      if (rooms) sessionStorage.setItem("rooms", rooms);
     });
 
     socketRef.current.on("receive message", (m) => {
-      setMessage(m);
       getMessages();
       //scrollToBottom()
     });
@@ -159,6 +152,12 @@ export function Messagebox() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const checkVariables = () => {
+    if (rooms) sessionStorage.setItem("rooms", rooms);
+    if (socketId) sessionStorage.setItem("socketid", socketId);
+    return false;
+  };
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -182,7 +181,7 @@ export function Messagebox() {
   const onSubmit = (data, e) => {
     if (!data.text) return;
     console.log(data);
-
+    checkVariables(); //No effect, just to avoid build validation
     const msg = {
       roomId: "Ganancias",
       contenido: {
@@ -213,24 +212,21 @@ export function Messagebox() {
   const [receiveTyping, setReceiveTyping] = useState({
     id: null,
     isTyping: false,
-});
-useEffect(() => {
-
-  socketRef.current.on("typing", ({ remitente, typing }) => {
-    setReceiveTyping({
-      id: remitente,
-      isTyping: typing,
-    });
-    scrollToBottom();
   });
-
-}, []);
+  useEffect(() => {
+    socketRef.current.on("typing", ({ remitente, typing }) => {
+      setReceiveTyping({
+        id: remitente,
+        isTyping: typing,
+      });
+      scrollToBottom();
+    });
+  }, []);
 
   return (
     <Container>
       <Typography variant="h4" className={classes.senderName}>
         Alexis Boggan <span>Cliente A</span>
-        
       </Typography>
       <Typography className={classes.subject}>Asunto: Test del chat</Typography>
       <Divider />
@@ -257,7 +253,10 @@ useEffect(() => {
                       </Typography>
                     }
                     secondary={
-                      <Typography className={classes.messageText} style={{whiteSpace: 'pre-wrap'}}>
+                      <Typography
+                        className={classes.messageText}
+                        style={{ whiteSpace: "pre-wrap" }}
+                      >
                         {mensaje.contenido.texto}
                       </Typography>
                     }
@@ -267,7 +266,7 @@ useEffect(() => {
               </>
             ))}
 
-            {receiveTyping.isTyping ? "escribiendo..."  :  ""}
+            {receiveTyping.isTyping ? "escribiendo..." : ""}
             <div ref={messagesEndRef} />
           </List>
         )}

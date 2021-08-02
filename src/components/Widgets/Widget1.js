@@ -18,9 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Widget1(props) {
-  function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
+  
   const classes = useStyles();
 
   function NotificationIcon() {

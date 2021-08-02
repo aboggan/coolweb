@@ -1,15 +1,13 @@
+import { Hidden } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import React from "react";
 import { Route } from "react-router-dom";
-import Header from "./header";
-import Mensajes from "./mensajes";
-import WidgetList from "../WidgetList";
-
-import Container from "@material-ui/core/Container";
 import Chat from "../Chat";
-import { Hidden } from "@material-ui/core";
-import Widget1 from "../Widgets/Widget1";
-import Widget2 from "../Widgets/Widget2";
+import WidgetList from "../WidgetList";
+import Header from "./header";
 import Documentos from "./header/documentos";
+import Mensajes from "./mensajes";
+
 export default function Dashboard(props) {
   return (
     <>

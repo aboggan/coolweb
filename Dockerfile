@@ -1,8 +1,5 @@
-FROM node
-
-WORKDIR /build
-COPY ./build /build
-RUN ["npm", "i", "-g", "serve"]
-EXPOSE 8080
-
-CMD [ "serve", "-l", "8080" ]
+FROM nginx:stable-alpine
+COPY ./build /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
